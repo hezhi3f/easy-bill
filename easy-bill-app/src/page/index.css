@@ -1,0 +1,25 @@
+.app {
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+.top {
+    flex: 0;
+    border-bottom: solid 1px var(--adm-border-color);
+}
+
+.body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: #f5f7fa;
+    overflow-y: auto;
+}
+
+.bottom {
+    flex: 0;
+    border-top: solid 1px var(--adm-border-color);
+}
