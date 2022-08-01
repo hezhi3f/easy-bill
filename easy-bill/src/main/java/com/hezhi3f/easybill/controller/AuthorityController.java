@@ -2,7 +2,7 @@ package com.hezhi3f.easybill.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.hezhi3f.easybill.entity.User;
+import com.hezhi3f.easybill.entity.UserPO;
 import com.hezhi3f.easybill.exception.BillException;
 import com.hezhi3f.easybill.exception.ExceptionType;
 import com.hezhi3f.easybill.result.Result;
@@ -16,7 +16,7 @@ public class AuthorityController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public Result<Void> register(@RequestBody User user) {
+    public Result<Void> register(@RequestBody UserPO user) {
         boolean save = userService.save(user);
         if (!save) {
             throw new RuntimeException("注册失败");
@@ -25,12 +25,12 @@ public class AuthorityController {
         return ResultUtils.success();
     }
     @PostMapping("/login")
-    public Result<String> login(@RequestBody User user) {
-        QueryWrapper<User> wrapper = Wrappers.<User>query()
+    public Result<String> login(@RequestBody UserPO user) {
+        QueryWrapper<UserPO> wrapper = Wrappers.<UserPO>query()
                 .eq("username", user.getUsername())
                 .eq("password", user.getPassword());
 
-        User loginUser = userService.getOne(wrapper);
+        UserPO loginUser = userService.getOne(wrapper);
 
         if (loginUser == null) {
             throw new BillException(ExceptionType.USERNAME_OR_PASSWORD_ERROR);

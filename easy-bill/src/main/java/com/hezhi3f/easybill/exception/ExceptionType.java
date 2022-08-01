@@ -2,7 +2,7 @@ package com.hezhi3f.easybill.exception;
 
 
 public enum ExceptionType {
-    USERNAME_OR_PASSWORD_ERROR(1000, "用户名或者密码错误");
+    USERNAME_OR_PASSWORD_ERROR(1000, "用户名或者密码错误"), USER_NOT_EXIST(10001, "用户不存在");
 
     ;
     private Integer code;

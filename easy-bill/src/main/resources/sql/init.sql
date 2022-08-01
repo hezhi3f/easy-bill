@@ -1,10 +1,16 @@
-insert into bill_type(`type`)
-values ('衣'),
-       ('食'),
-       ('住'),
-       ('行');
+insert into bill_type(`type`,`is_expend`,`gmt_create`)
+values ('衣','1',now()),
+       ('食','1',now()),
+       ('住','1',now()),
+       ('行','1',now()),
+       ('教育','1',now()),
+       ('医疗','1',now()),
+       ('娱乐','1',now()),
+       ('工姿','0',now()),
+       ('零花钱','0',now()),
+       ('奖金','0',now());
 
-insert into bill_user(`username`, `password`)
-values ('guomq', '123456'),
-       ('liaoxh', '123456'),
-       ('guojq', '123456');
+insert into bill_user(`username`, `password`, `gmt_create`)
+values ('guomq', '123456', now()),
+       ('liaoxh', '123456', now()),
+       ('guojq', '123456', now());
