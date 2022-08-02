@@ -1,7 +1,6 @@
 import {NavBar, Tabs} from "antd-mobile";
 import {useNavigate} from "react-router-dom";
 import RecordForm from "../../component/RecordForm";
-import {useState} from "react";
 
 const income = {
   title: "收入",

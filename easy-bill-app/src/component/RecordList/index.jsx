@@ -1,19 +1,26 @@
-import {Dialog, Image, List, SwipeAction, Tag} from "antd-mobile";
+import {Dialog, Ellipsis, Image, List, SwipeAction, Tag} from "antd-mobile";
 import {BillOutline, CalendarOutline, CouponOutline, HandPayCircleOutline, TruckOutline} from "antd-mobile-icons";
 import {useRef} from "react";
 import {useNavigate} from "react-router-dom";
 
 const records = [
   {id: 1, name: 1, time: '2022-07-16 14:11:00', amount: 10.3, description: '中饭', type: '衣'},
-  {id: 2, name: 1, time: '2022-07-13 12:11:00', amount: -130.3, description: '中饭', type: '食'},
-  {id: 3, name: 1, time: '2022-07-12 14:11:00', amount: 12.3, description: '中饭', type: '住'},
-  {id: 4, name: 1, time: '2022-07-13 15:11:00', amount: -105, description: '中饭', type: '行'},
-  {id: 5, name: 1, time: '2022-07-16 14:11:00', amount: 10.34, description: '中饭', type: '其他'},
-  {id: 6, name: 1, time: '2022-07-12 17:11:00', amount: 10.34, description: '中饭', type: '住'},
-  {id: 7, name: 1, time: '2022-07-13 18:11:00', amount: 10.53, description: '中饭', type: '衣'},
-  {id: 8, name: 1, time: '2022-07-13 18:11:00', amount: -10.53, description: '中饭', type: '衣'},
-  {id: 9, name: 1, time: '2022-07-13 18:11:00', amount: 10.53, description: '中饭', type: '衣'},
-  {id: 10, name: 1, time: '2022-07-13 18:11:00', amount: -10.53, description: '中饭', type: '衣'},
+  {id: 2, name: 1, time: '2022-07-13 12:11:00', amount: -130.3, description: '这是一条长度一般的描述', type: '食'},
+  {
+    id: 3,
+    name: 1,
+    time: '2022-07-12 14:11:00',
+    amount: 12.3,
+    description: '这是一条特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别特别长的描述',
+    type: '住'
+  },
+  {id: 4, name: 1, time: '2022-07-13 15:11:00', amount: -105, description: '中饭19.3', type: '行'},
+  {id: 5, name: 1, time: '2022-07-16 14:11:00', amount: 10.34, description: '晚饭324', type: '其他'},
+  {id: 6, name: 1, time: '2022-07-12 17:11:00', amount: 10.34, description: '这是一条描述', type: '住'},
+  {id: 7, name: 1, time: '2022-07-13 18:11:00', amount: 10.53, description: '', type: '衣'},
+  {id: 8, name: 1, time: '2022-07-13 18:11:00', amount: -10.53, description: '又一条描述', type: '衣'},
+  {id: 9, name: 1, time: '2022-07-13 18:11:00', amount: 10.53, description: '今天早上吃什么', type: '衣'},
+  {id: 10, name: 1, time: '2022-07-13 18:11:00', amount: -10.53, description: '明天早上吃什么', type: '衣'},
   {id: 11, name: 1, time: '2022-07-13 18:11:00', amount: 10.53, description: '中饭', type: '衣'},
   {id: 12, name: 1, time: '2022-07-13 18:11:00', amount: -10.53, description: '中饭', type: '衣'},
 ]
@@ -21,12 +28,12 @@ const records = [
 const showInfo = (record) => {
   return () => {
     Dialog.show({
-      header: (record.time),
+      image: "https://fc1tn.baidu.com/it/u=3594259389,3922307789&fm=202&mola=new&crop=v1",
       title: record.amount,
       content: (
         <>
-          <div>{record.type}</div>
           <div>{record.description}</div>
+          <div>{record.type}{record.time}</div>
         </>
       ),
       closeOnMaskClick: true,
@@ -55,9 +62,9 @@ const showInfo = (record) => {
 
 
 export default () => {
-
+  
   const navigate = useNavigate()
-
+  
   const getRightActions = (record) => [
     {
       key: 'copy',
@@ -76,7 +83,7 @@ export default () => {
       }
     },
   ]
-
+  
   return (
     <List mode={"card"} header='历史记录'>
       {records.map(record => (
@@ -86,7 +93,6 @@ export default () => {
         >
           <List.Item
             title={Type(record.type)}
-            children={record.description}
             key={record.id}
             prefix={<Image width={"3.2em"} height={"3.2em"}
                            src={"https://fc1tn.baidu.com/it/u=3594259389,3922307789&fm=202&mola=new&crop=v1"}
@@ -96,9 +102,11 @@ export default () => {
             arrow
             clickable
             onClick={showInfo(record)}
-          />
+          >
+            <Ellipsis direction='end' content={record.description}/>
+          </List.Item>
         </SwipeAction>
-
+      
       ))}
     </List>
   )
@@ -112,5 +120,5 @@ const Amount = (amount) => {
   } else {
     return <div style={{color: "#00b578"}}>{`+${amount}`}</div>
   }
-
+  
 }

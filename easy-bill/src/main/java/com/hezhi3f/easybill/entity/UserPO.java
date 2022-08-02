@@ -21,7 +21,7 @@ public class UserPO {
     private String phoneNumber;
     private String email;
     /**
-     * 1-男 0-女 null-未知
+     * 0-未知 1-男 2-女
      */
     private Integer gender;
     private Integer age;

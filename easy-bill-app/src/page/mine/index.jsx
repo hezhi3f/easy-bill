@@ -1,4 +1,4 @@
-import {AutoCenter, Avatar, Button, Grid, List, Space} from "antd-mobile";
+import { List, NavBar} from "antd-mobile";
 
 import ButtonBar from "../../component/BottomBar";
 import MineNavInfo from "../../component/MineNavInfo";
@@ -10,9 +10,10 @@ export default () => {
   return (
     <div className={"app"}>
       <div className={"top"}>
-        <MineNavInfo/>
+        <NavBar back={null}>个人中心</NavBar>
       </div>
       <div className={"body"}>
+        <MineNavInfo/>
         <List mode={"card"}>
           <List.Item prefix={<UnorderedListOutline/>} onClick={handle}>列表1</List.Item>
           <List.Item prefix={<PayCircleOutline/>}>列表2</List.Item>

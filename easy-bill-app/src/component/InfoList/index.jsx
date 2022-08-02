@@ -1,4 +1,5 @@
 import {Avatar, List} from "antd-mobile";
+import React from "react";
 
 const user = {
   "id": 3,
@@ -15,22 +16,14 @@ const user = {
   "deleted": false
 }
 
-const formatAge = v => {
-  const gender = ["女", "男"];
-  if (v === null) {
-    return "未知";
-  }
-  return gender[v];
-}
-
 export default () => {
   return (
     <List>
-      <List.Item extra={<Avatar src={user.avatar}/>} clickable>头像</List.Item>
+      <List.Item extra={<Avatar src={user.avatar}/>}>头像</List.Item>
       <List.Item extra={user.nickname}>昵称</List.Item>
       <List.Item extra={user.username}>用户名</List.Item>
       <List.Item extra={user.age}>年龄</List.Item>
-      <List.Item extra={formatAge(user.gender)}>性别</List.Item>
+      <List.Item extra={["未设置", "女", "男"][user.gender]}>性别</List.Item>
       <List.Item extra={user.phoneNumber}>手机号</List.Item>
       <List.Item extra={user.email}>邮箱</List.Item>
     </List>
