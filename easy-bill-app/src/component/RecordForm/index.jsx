@@ -2,9 +2,11 @@ import {Button, DatePicker, Dialog, Form, Input, Selector, TextArea, Toast} from
 import {useState} from "react";
 import dayjs from "dayjs";
 import {sleep} from "antd-mobile/es/utils/sleep";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 export default (props) => {
+  const location = useLocation()
+  // todo location 中取出 state
   const {title, options} = props
   const navigate = useNavigate()
   const [visible, setVisible] = useState(false)
