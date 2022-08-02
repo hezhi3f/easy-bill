@@ -1,6 +1,6 @@
 import {AutoCenter, Button, Space} from "antd-mobile";
 
-import ButtonBar from "../../component/ButtonBar";
+import ButtonBar from "../../component/BottomBar";
 
 export default () => {
 

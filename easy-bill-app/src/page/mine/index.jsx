@@ -1,6 +1,6 @@
 import {AutoCenter, Avatar, Button, Grid, List, Space} from "antd-mobile";
 
-import ButtonBar from "../../component/ButtonBar";
+import ButtonBar from "../../component/BottomBar";
 import MineNavInfo from "../../component/MineNavInfo";
 import {PayCircleOutline, SetOutline, UnorderedListOutline} from "antd-mobile-icons";
 

@@ -1,7 +1,7 @@
 import {Button, Divider, FloatingBubble, NavBar} from "antd-mobile";
 import "../index.css"
 
-import ButtonBar from "../../component/ButtonBar";
+import ButtonBar from "../../component/BottomBar";
 import {useNavigate} from "react-router-dom";
 import RecordList from "../../component/RecordList";
 import {AddCircleOutline, AddOutline, ChatAddOutline, MessageFill} from "antd-mobile-icons";
