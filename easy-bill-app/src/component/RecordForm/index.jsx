@@ -8,15 +8,15 @@ export default (props) => {
   const {title, options} = props
   const navigate = useNavigate()
   const [visible, setVisible] = useState(false)
-  
-  
+
+
   const [type, setType] = useState('其他');
-  
+
   const submitButton = <Button block type='submit' color='primary' size='large'> 提交</Button>
-  
+
   const onFinish = value => {
     console.log('value', value)
-    
+
     Dialog.confirm({
       content: '是否提交本次记录',
       onConfirm: async () => {

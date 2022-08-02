@@ -1,23 +1,19 @@
-import {AutoCenter, Button, Space} from "antd-mobile";
-
-import ButtonBar from "../../component/BottomBar";
+import LoginForm from "../../component/LoginForm";
+import {FloatingBubble, NavBar} from "antd-mobile";
+import {useNavigate} from "react-router-dom";
 
 export default () => {
-
-    return (
-        <div className={"app"}>
-            {/*<div className={"top"}></div>*/}
-            <div className={"body"}>
-                <AutoCenter>
-                    <Space direction={"vertical"} block>
-                        <Button color={"success"}>支出</Button>
-                        <Button color={"danger"}>收入</Button>
-                    </Space>
-                </AutoCenter>
-            </div>
-            <div className={"bottom"}>
-                <ButtonBar/>
-            </div>
-        </div>
-    )
+  const navigate = useNavigate()
+  return (
+    <div className={"app"}>
+      <div className={".top"}>
+        <NavBar onBack={() => navigate(-1)}>注册/登录</NavBar>
+      </div>
+      <div className={"body"}>
+        <LoginForm/>
+      </div>
+      <div className={"bottom"}>
+      </div>
+    </div>
+  )
 }

@@ -20,13 +20,10 @@ const formatAge = v => {
   if (v === null) {
     return "未知";
   }
-  
   return gender[v];
 }
 
 export default () => {
-  
-  
   return (
     <List>
       <List.Item extra={<Avatar src={user.avatar}/>} clickable>头像</List.Item>
@@ -36,7 +33,6 @@ export default () => {
       <List.Item extra={formatAge(user.gender)}>性别</List.Item>
       <List.Item extra={user.phoneNumber}>手机号</List.Item>
       <List.Item extra={user.email}>邮箱</List.Item>
-    
     </List>
   )
 }
