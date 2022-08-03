@@ -6,13 +6,23 @@ import {useLocation, useNavigate} from "react-router-dom";
 
 export default (props) => {
   const location = useLocation()
+  console.log("location", location)
+  const record = location.state || {
+    time: new Date(),
+    amount: 0.00,
+    description: '',
+    type: '其他'
+  }
+
+  console.log("record", record)
+
   // todo location 中取出 state
   const {title, options} = props
   const navigate = useNavigate()
   const [visible, setVisible] = useState(false)
 
 
-  const [type, setType] = useState('其他');
+  const [type, setType] = useState(record.type);
 
   const submitButton = <Button block type='submit' color='primary' size='large'> 提交</Button>
 
@@ -34,11 +44,8 @@ export default (props) => {
   }
   return (
     <Form mode={"default"} layout={"horizontal"} onFinish={onFinish} footer={submitButton}
-          initialValues={{"time": new Date(), "username": "hezhi"}}>
+          initialValues={record}>
       <Form.Header>{`${title}记录`}</Form.Header>
-      <Form.Item name='username' label='用户'>
-        <Input readOnly/>
-      </Form.Item>
       <Form.Item name='time' label={`${title}时间`} trigger='onConfirm' onClick={() => setVisible(true)}>
         <DatePicker visible={visible} precision={"minute"} onClose={() => setVisible(false)}>
           {value => dayjs(value).format('YYYY-MM-DD HH:mm')}

@@ -1,6 +1,9 @@
-package com.hezhi3f.easybill.entity;
+package com.hezhi3f.easybill.entity.record;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Date;

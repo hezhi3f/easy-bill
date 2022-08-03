@@ -1,6 +1,6 @@
 package com.hezhi3f.easybill.controller;
 
-import com.hezhi3f.easybill.entity.CheckCode;
+import com.hezhi3f.easybill.entity.checkcode.CheckCode;
 import com.hezhi3f.easybill.util.CheckCodeUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

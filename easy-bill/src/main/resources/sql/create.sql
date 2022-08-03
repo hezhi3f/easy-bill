@@ -2,6 +2,7 @@ drop database if exists `easy_bill`;
 create database if not exists `easy_bill`;
 use `easy_bill`;
 
+set foreign_key_checks = 0;
 drop table if exists `bill_user`;
 create table `bill_user`
 (
@@ -14,7 +15,7 @@ create table `bill_user`
     `email`        varchar(32),
     `gender`       tinyint unsigned,
     `age`          int unsigned,
-    `gmt_created`   datetime        not null,
+    `gmt_created`  datetime        not null,
     `gmt_modified` datetime,
     `is_deleted`   tinyint default 0,
     primary key (`id`)
@@ -27,12 +28,12 @@ create table if not exists `bill_type`
     `id`           bigint unsigned   not null auto_increment,
     `type`         varchar(8) unique not null,
     `is_expend`    tinyint unsigned,
-    `gmt_create`   datetime          not null,
+    `gmt_created`  datetime          not null,
     `gmt_modified` datetime,
     `is_deleted`   tinyint unsigned default 0,
     primary key (`id`)
-)engine = innodb
- default charset = utf8mb4;
+) engine = innodb
+  default charset = utf8mb4;
 
 drop table if exists `bill_record`;
 create table if not exists `bill_record`
@@ -43,7 +44,7 @@ create table if not exists `bill_record`
     `amount`       decimal(12, 2)  not null,
     `description`  varchar(150),
     `type_id`      bigint unsigned,
-    `gmt_create`   datetime,
+    `gmt_created`  datetime,
     `gmt_modified` datetime,
     `is_deleted`   tinyint unsigned default 0,
     primary key (`id`),
@@ -52,4 +53,5 @@ create table if not exists `bill_record`
 ) engine = innodb
   default charset = utf8mb4;
 
+set foreign_key_checks = 1;
 

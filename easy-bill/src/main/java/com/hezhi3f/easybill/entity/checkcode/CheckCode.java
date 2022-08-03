@@ -1,4 +1,4 @@
-package com.hezhi3f.easybill.entity;
+package com.hezhi3f.easybill.entity.checkcode;
 
 import lombok.Data;
 

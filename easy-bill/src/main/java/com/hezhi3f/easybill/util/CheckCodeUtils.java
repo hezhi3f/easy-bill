@@ -1,6 +1,6 @@
 package com.hezhi3f.easybill.util;
 
-import com.hezhi3f.easybill.entity.CheckCode;
+import com.hezhi3f.easybill.entity.checkcode.CheckCode;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

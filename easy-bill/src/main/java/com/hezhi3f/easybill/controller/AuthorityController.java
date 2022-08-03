@@ -1,8 +1,12 @@
 package com.hezhi3f.easybill.controller;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.hezhi3f.easybill.entity.UserPO;
+import com.hezhi3f.easybill.entity.user.UserDTO;
+import com.hezhi3f.easybill.entity.user.UserPO;
 import com.hezhi3f.easybill.exception.BillException;
 import com.hezhi3f.easybill.exception.ExceptionType;
 import com.hezhi3f.easybill.result.Result;
@@ -11,7 +15,11 @@ import com.hezhi3f.easybill.util.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
+@RestController
 public class AuthorityController {
     private final UserService userService;
 
@@ -24,24 +32,27 @@ public class AuthorityController {
 
         return ResultUtils.success();
     }
+
     @PostMapping("/login")
-    public Result<String> login(@RequestBody UserPO user) {
+    public Result<String> login(@RequestBody UserDTO userDTO) {
         QueryWrapper<UserPO> wrapper = Wrappers.<UserPO>query()
-                .eq("username", user.getUsername())
-                .eq("password", user.getPassword());
+                .eq("username", userDTO.getUsername())
+                .eq("password", userDTO.getPassword());
 
-        UserPO loginUser = userService.getOne(wrapper);
+        UserPO userPO = userService.getOne(wrapper);
 
-        if (loginUser == null) {
+        if (userPO == null) {
             throw new BillException(ExceptionType.USERNAME_OR_PASSWORD_ERROR);
         }
 
         // TODO 生成token，并存储
+        String token = JWT.create()
+                .withHeader(Map.of("alg", "HS256", "typ", "JWT"))
+                .withClaim("username", userDTO.getUsername())
+                .sign(Algorithm.HMAC256(String.valueOf(userDTO.getId())));
 
-        return ResultUtils.success();
+        return ResultUtils.success(token);
     }
-
-
 
     @Autowired
     public AuthorityController(UserService userService) {

@@ -1,12 +1,13 @@
-package com.hezhi3f.easybill.entity;
+package com.hezhi3f.easybill.entity.user;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
+import lombok.*;
 
 import java.util.Date;
+
 
 @Data
 @TableName("bill_user")

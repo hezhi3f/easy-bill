@@ -1,7 +1,7 @@
 package com.hezhi3f.easybill.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hezhi3f.easybill.entity.UserPO;
+import com.hezhi3f.easybill.entity.user.UserPO;
 
 import java.util.Optional;
 

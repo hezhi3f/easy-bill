@@ -1,6 +1,6 @@
 package com.hezhi3f.easybill.controller;
 
-import com.hezhi3f.easybill.entity.UserPO;
+import com.hezhi3f.easybill.entity.user.UserPO;
 import com.hezhi3f.easybill.exception.BillException;
 import com.hezhi3f.easybill.exception.ExceptionType;
 import com.hezhi3f.easybill.result.Result;
