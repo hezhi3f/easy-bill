@@ -2,6 +2,7 @@ package com.hezhi3f.easybill.util;
 
 import com.hezhi3f.easybill.entity.CheckCode;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
@@ -24,9 +25,14 @@ public class CheckCodeUtils {
         BufferedImage image = new BufferedImage(100, 50, BufferedImage.TYPE_INT_RGB);
 
         String codeStr = String.valueOf(code);
-        image.createGraphics().drawString(codeStr, 0, 50);
-
-
+        Graphics2D g2d = image.createGraphics();
+        g2d.setColor(Color.WHITE);
+        g2d.fillRect(0, 0, 100, 50);
+        g2d.setColor(Color.BLACK);
+        g2d.drawRect(0, 0, 100, 50);
+        Font font = new Font("Arial", Font.PLAIN, 30);
+        g2d.setFont(font);
+        g2d.drawString(codeStr, 10, 40);
         CheckCode checkCode = new CheckCode();
         checkCode.setCode(codeStr);
         checkCode.setImage(image);
