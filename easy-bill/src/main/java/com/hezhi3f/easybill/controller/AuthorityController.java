@@ -12,6 +12,7 @@ import com.hezhi3f.easybill.exception.ExceptionType;
 import com.hezhi3f.easybill.result.Result;
 import com.hezhi3f.easybill.service.UserService;
 import com.hezhi3f.easybill.util.ResultUtils;
+import com.hezhi3f.easybill.util.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,10 +47,7 @@ public class AuthorityController {
         }
 
         // TODO 生成token，并存储
-        String token = JWT.create()
-                .withHeader(Map.of("alg", "HS256", "typ", "JWT"))
-                .withClaim("username", userDTO.getUsername())
-                .sign(Algorithm.HMAC256(String.valueOf(userDTO.getId())));
+        String token = TokenUtils.getToken(userDTO);
 
         return ResultUtils.success(token);
     }

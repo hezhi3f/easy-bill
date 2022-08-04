@@ -26,6 +26,7 @@ public class UserPO {
      */
     private Integer gender;
     private Integer age;
+    private String secret;
     @TableField("gmt_created")
     private Date gmtCreated;
     @TableField("gmt_modified")

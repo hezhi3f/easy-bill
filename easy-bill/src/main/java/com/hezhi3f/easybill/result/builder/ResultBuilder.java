@@ -12,6 +12,10 @@ public class ResultBuilder<T> {
     private ResultBuilder() {
     }
 
+    public static <T> ResultBuilder<T> empty() {
+        return new ResultBuilder<>();
+    }
+
     public static <T> ResultBuilder<T> success() {
         ResultBuilder<T> builder = new ResultBuilder<>();
         builder.code = 200;

@@ -15,6 +15,7 @@ create table `bill_user`
     `email`        varchar(32),
     `gender`       tinyint unsigned,
     `age`          int unsigned,
+    `secret`       varchar(32),
     `gmt_created`  datetime        not null,
     `gmt_modified` datetime,
     `is_deleted`   tinyint default 0,
