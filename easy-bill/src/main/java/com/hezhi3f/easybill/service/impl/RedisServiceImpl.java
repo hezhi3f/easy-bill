@@ -1,5 +1,6 @@
-package com.hezhi3f.easybill.service;
+package com.hezhi3f.easybill.service.impl;
 
+import com.hezhi3f.easybill.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;

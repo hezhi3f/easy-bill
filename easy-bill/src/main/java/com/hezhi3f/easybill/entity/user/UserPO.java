@@ -18,7 +18,6 @@ public class UserPO {
     private String password;
     private String avatar;
     private String nickname;
-    @TableField("phone_number")
     private String phoneNumber;
     private String email;
     /**
@@ -27,9 +26,7 @@ public class UserPO {
     private Integer gender;
     private Integer age;
     private String secret;
-    @TableField("gmt_created")
     private Date gmtCreated;
-    @TableField("gmt_modified")
     private Date gmtModified;
     @TableField("is_deleted")
     private Boolean deleted;

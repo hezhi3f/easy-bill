@@ -8,5 +8,5 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode(callSuper = true)
 public class UserDTO extends UserPO{
-    private String version;
+
 }
