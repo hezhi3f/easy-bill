@@ -12,6 +12,11 @@ spring:
     time-zone: GMT+8
   redis:
     password: 123456
+  mail:
+    username: hezhi3f@foxmail.com
+    password: kynjbmhmfrfqdijc
+    host: smtp.qq.com
+
 
 
 
